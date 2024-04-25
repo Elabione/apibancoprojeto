@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>apiprojeto</name>
+    </assembly>
+    <members>
+        <member name="M:apiprojeto.Controllers.ColaboradorController.GetColaboradors">
+            <summary>
+            Retorna os Colaboradores existente
+            </summary>
+            <remarks>
+            {
+               "idCol": 0,
+               "nomeCol": "string",
+               "ctps": "string",
+               "telefone": 0,
+               "cpf": 0,
+               "email": "string",
+               "dataAdmisão": "2024-04-25",
+               "entregas": []
+             }
+            </remarks>
+            <response code="200">Sucesso no retorno dos dados</response>
+        </member>
+        <member name="M:apiprojeto.Controllers.ColaboradorController.GetColaborador(System.Int32)">
+            <summary>
+            Retorna os Colaboradores existente
+            </summary>
+            <remarks>
+            {
+               "idCol": 0,
+               "nomeCol": "string",
+               "ctps": "string",
+               "telefone": 0,
+               "cpf": 0,
+               "email": "string",
+               "dataAdmisão": "2024-04-25",
+               "entregas": []
+             }
+            </remarks>
+            <response code="200">Sucesso no retorno dos dados</response>
+        </member>
+        <member name="M:apiprojeto.Controllers.ColaboradorController.PutColaborador(System.Int32,apiprojeto.Models.Colaborador)">
+            <summary>
+            Alteração conforme dados passados para o id informado
+            </summary>
+            <remarks>
+             {
+               "idCol": 0,
+               "nomeCol": "string",
+               "ctps": "string",
+               "telefone": 0,
+               "cpf": 0,
+               "email": "string",
+               "dataAdmisão": "2024-04-25"
+             }
+            </remarks>
+            <response code="200">Sucesso na atualização dos dados</response>
+        </member>
+        <member name="M:apiprojeto.Controllers.ColaboradorController.PostColaborador(apiprojeto.Models.Colaborador)">
+            <summary>
+            Inserir  um novo registro de colaborador no banco de dados
+            </summary>
+            <remarks>
+             {
+               "idCol": 0,
+               "nomeCol": "string",
+               "ctps": "string",
+               "telefone": 0,
+               "cpf": 0,
+               "email": "string",
+               "dataAdmisão": "2024-04-25"
+             }
+            </remarks>
+            <response code="200">Sucesso no upload dos dados</response>
+        </member>
+        <member name="M:apiprojeto.Controllers.ColaboradorController.DeleteColaborador(System.Int32)">
+            <summary>
+            deletar  um registro de colaborador por Id 
+            </summary>
+        </member>
+        <member name="M:apiprojeto.Controllers.EntregaController.GetEntregas">
+            <summary>
+            Retorna os Colaboradores existente
+            </summary>
+            <remarks>
+            {
+               "idCol": 0,
+               "nomeCol": "string",
+               "ctps": "string",
+               "telefone": 0,
+               "cpf": 0,
+               "email": "string",
+               "dataAdmisão": "2024-04-25",
+               "entregas": []
+             }
+            </remarks>
+            <response code="200">Sucesso no retorno dos dados</response>
+        </member>
+        <member name="M:apiprojeto.Controllers.EntregaController.GetEntrega(System.Int32)">
+            <summary>
+            Retorna os entregas existentes
+            </summary>
+            <remarks>
+            {
+               "idEnt": 0,
+               "dataValidade": "2024-04-25",
+               "dateEntrega": "2024-04-25",
+               "idEpi": 0,
+               "idCol": 0,
+               "idColNavigation": {
+                 "idCol": 0,
+                 "nomeCol": "string",
+                 "ctps": "string",
+                 "telefone": 0,
+                 "cpf": 0,
+                 "email": "string",
+                 "dataAdmisão": "2024-04-25",
+             }
+            </remarks>
+            <response code="200">Sucesso no retorno dos dados</response>
+        </member>
+        <member name="M:apiprojeto.Controllers.EntregaController.PutEntrega(System.Int32,apiprojeto.Models.Entrega)">
+            <summary>
+            Alteração  de dados da entrega
+            </summary>
+             <remarks>
+            {
+               "idEnt": 0,
+               "dataValidade": "2024-04-25",
+               "dateEntrega": "2024-04-25",
+               "idEpi": 0,
+               "idCol": 0,
+               "idColNavigation": {
+                 "idCol": 0,
+                 "nomeCol": "string",
+                 "ctps": "string",
+                 "telefone": 0,
+                 "cpf": 0,
+                 "email": "string",
+                 "dataAdmisão": "2024-04-25",
+             }
+            </remarks>
+            <response code="200">Sucesso na atualização dos dados</response>
+        </member>
+        <member name="M:apiprojeto.Controllers.EntregaController.PostEntrega(apiprojeto.Models.Entrega)">
+            <summary>
+            Inserir  uma nova entrega
+            </summary>
+             <remarks>
+            {
+               "idEnt": 0,
+               "dataValidade": "2024-04-25",
+               "dateEntrega": "2024-04-25",
+               "idEpi": 0,
+               "idCol": 0,
+               "idColNavigation": {
+                 "idCol": 0,
+                 "nomeCol": "string",
+                 "ctps": "string",
+                 "telefone": 0,
+                 "cpf": 0,
+                 "email": "string",
+                 "dataAdmisão": "2024-04-25",
+             }
+            </remarks>
+            <response code="200">Sucesso no upload dos dados</response>
+        </member>
+        <member name="M:apiprojeto.Controllers.EntregaController.DeleteEntrega(System.Int32)">
+            <summary>
+            Deletar  um registro de Entrega por Id
+            </summary>
+        </member>
+        <member name="M:apiprojeto.Controllers.EpiController.GetEpis">
+            <summary>
+            Retorna os Colaboradores existente
+            </summary>
+            <remarks>
+            {
+               "idCol": 0,
+               "nomeCol": "string",
+               "ctps": "string",
+               "telefone": 0,
+               "cpf": 0,
+               "email": "string",
+               "dataAdmisão": "2024-04-25",
+               "entregas": []
+             }
+            </remarks>
+            <response code="200">Sucesso no retorno dos dados</response>
+        </member>
+        <member name="M:apiprojeto.Controllers.EpiController.GetEpi(System.Int32)">
+            <summary>
+            Retorna  uma EPI por id
+            </summary>
+            <remarks>
+            {
+               "idEpi": 0,
+               "insUso": "string",
+               "nomeEpi": "string",
+               "qtd": 0,
+             }
+            </remarks>
+            <response code="200">Sucesso no retorno dos dados</response>
+        </member>
+        <member name="M:apiprojeto.Controllers.EpiController.PutEpi(System.Int32,apiprojeto.Models.Epi)">
+            <summary>
+            Alteração  de dados da EPI
+            </summary>
+             <remarks>
+            {
+               "idEpi": 0,
+               "insUso": "string",
+               "nomeEpi": "string",
+               "qtd": 0,
+             }
+            </remarks>
+            <response code="200">Sucesso na atualização dos dados</response>
+        </member>
+        <member name="M:apiprojeto.Controllers.EpiController.PostEpi(apiprojeto.Models.Epi)">
+            <summary>
+            Inserir  novo registro na tabela EPI
+            </summary>
+             <remarks>
+            {
+               "idEpi": 0,
+               "insUso": "string",
+               "nomeEpi": "string",
+               "qtd": 0,
+             }
+            </remarks>
+            <response code="200">Sucesso no upload dos dados</response>
+        </member>
+        <member name="M:apiprojeto.Controllers.EpiController.DeleteEpi(System.Int32)">
+            <summary>
+            Deletar  um registro da tabela EPI
+            </summary>
+        </member>
+    </members>
+</doc>
