@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using apiprojeto.Context;
 using apiprojeto.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace apiprojeto.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize("Admin")]
     public class EpiController : ControllerBase
     {
         private readonly AppDbContext _context;

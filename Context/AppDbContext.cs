@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using apiprojeto.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace apiprojeto.Context;
 
-public partial class AppDbContext : DbContext
+public partial class AppDbContext : IdentityDbContext<ApplicationUser>
 {
     public AppDbContext()
     {
@@ -44,9 +45,7 @@ public partial class AppDbContext : DbContext
 
             entity.HasIndex(e => e.Ctps, "uk_ctps").IsUnique();
 
-            entity.Property(e => e.IdCol)
-                .ValueGeneratedNever()
-                .HasColumnName("id_col");
+            entity.Property(e => e.IdCol).HasColumnName("id_col");
             entity.Property(e => e.Cpf).HasColumnName("cpf");
             entity.Property(e => e.Ctps)
                 .HasMaxLength(50)
@@ -69,9 +68,7 @@ public partial class AppDbContext : DbContext
 
             entity.HasIndex(e => e.IdEnt, "idx_id_ent");
 
-            entity.Property(e => e.IdEnt)
-                .ValueGeneratedNever()
-                .HasColumnName("id_ent");
+            entity.Property(e => e.IdEnt).HasColumnName("id_ent");
             entity.Property(e => e.DataValidade).HasColumnName("data_validade");
             entity.Property(e => e.DateEntrega).HasColumnName("date_entrega");
             entity.Property(e => e.IdCol).HasColumnName("id_col");
@@ -96,9 +93,7 @@ public partial class AppDbContext : DbContext
 
             entity.HasIndex(e => e.IdEpi, "idx_id_epi");
 
-            entity.Property(e => e.IdEpi)
-                .ValueGeneratedNever()
-                .HasColumnName("id_epi");
+            entity.Property(e => e.IdEpi).HasColumnName("id_epi");
             entity.Property(e => e.InsUso)
                 .HasMaxLength(1000)
                 .HasColumnName("ins_uso");
@@ -108,7 +103,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Qtd).HasColumnName("qtd");
         });
 
-        OnModelCreatingPartial(modelBuilder);
+        base.OnModelCreating(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

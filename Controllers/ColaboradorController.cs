@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using apiprojeto.Context;
 using apiprojeto.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace apiprojeto.Controllers
 {
@@ -27,8 +28,8 @@ namespace apiprojeto.Controllers
         /// <remarks>
         /// {
         ///    "idCol": 0,
-        ///    "nomeCol": "string",
-        ///    "ctps": "string",
+        ///    "nomeCol": "int",
+        ///    "ctps": "int",
         ///    "telefone": 0,
         ///    "cpf": 0,
         ///    "email": "string",
@@ -40,6 +41,7 @@ namespace apiprojeto.Controllers
 
         // GET: api/Colaborador
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Colaborador>>> GetColaboradors()
         {
           if (_context.Colaboradors == null)
@@ -56,7 +58,7 @@ namespace apiprojeto.Controllers
         /// {
         ///    "idCol": 0,
         ///    "nomeCol": "string",
-        ///    "ctps": "string",
+        ///    "ctps": "int",
         ///    "telefone": 0,
         ///    "cpf": 0,
         ///    "email": "string",
@@ -68,6 +70,7 @@ namespace apiprojeto.Controllers
 
         // GET: api/Colaborador/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<Colaborador>> GetColaborador(int id)
         {
           if (_context.Colaboradors == null)
@@ -91,7 +94,7 @@ namespace apiprojeto.Controllers
         ///  {
         ///    "idCol": 0,
         ///    "nomeCol": "string",
-        ///    "ctps": "string",
+        ///    "ctps": "int",
         ///    "telefone": 0,
         ///    "cpf": 0,
         ///    "email": "string",
@@ -103,6 +106,7 @@ namespace apiprojeto.Controllers
         // PUT: api/Colaborador/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize("Admin")]
         public async Task<IActionResult> PutColaborador(int id, Colaborador colaborador)
         {
             if (id != colaborador.IdCol)
@@ -138,7 +142,7 @@ namespace apiprojeto.Controllers
         ///  {
         ///    "idCol": 0,
         ///    "nomeCol": "string",
-        ///    "ctps": "string",
+        ///    "ctps": "int",
         ///    "telefone": 0,
         ///    "cpf": 0,
         ///    "email": "string",
@@ -150,6 +154,7 @@ namespace apiprojeto.Controllers
         // POST: api/Colaborador
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize("Admin")]
         public async Task<ActionResult<Colaborador>> PostColaborador(Colaborador colaborador)
         {
           if (_context.Colaboradors == null)
@@ -182,6 +187,7 @@ namespace apiprojeto.Controllers
 
         // DELETE: api/Colaborador/5
         [HttpDelete("{id}")]
+        [Authorize("Admin")]
         public async Task<IActionResult> DeleteColaborador(int id)
         {
             if (_context.Colaboradors == null)
@@ -203,6 +209,21 @@ namespace apiprojeto.Controllers
         private bool ColaboradorExists(int id)
         {
             return (_context.Colaboradors?.Any(e => e.IdCol == id)).GetValueOrDefault();
+        }
+        [HttpGet("Epis")]
+        [Authorize]
+        public async Task <ActionResult<IEnumerable<Entrega>>> GetEpiCollab (int id){
+            if (_context.Entregas == null){
+                return NotFound();
+            } else {
+                var epi = await _context.Entregas.Where(e=>e.IdCol == id).ToListAsync();
+                if (epi == null){
+                    return NotFound();
+
+                } else{
+                    return epi;
+                }
+            }
         }
     }
 }

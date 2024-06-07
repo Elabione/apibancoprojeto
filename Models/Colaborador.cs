@@ -9,7 +9,7 @@ public partial class Colaborador
 
     public string NomeCol { get; set; } = null!;
 
-    public string Ctps { get; set; } = null!;
+    public int Ctps { get; set; }
 
     public int Telefone { get; set; }
 

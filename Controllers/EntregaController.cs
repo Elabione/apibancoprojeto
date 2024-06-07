@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using apiprojeto.Context;
 using apiprojeto.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace apiprojeto.Controllers
 {
@@ -40,6 +41,7 @@ namespace apiprojeto.Controllers
 
         // GET: api/Entrega
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Entrega>>> GetEntregas()
         {
           if (_context.Entregas == null)
@@ -73,6 +75,7 @@ namespace apiprojeto.Controllers
 
         // GET: api/Entrega/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<Entrega>> GetEntrega(int id)
         {
           if (_context.Entregas == null)
@@ -114,6 +117,7 @@ namespace apiprojeto.Controllers
         // PUT: api/Entrega/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize("Admin")]
         public async Task<IActionResult> PutEntrega(int id, Entrega entrega)
         {
             if (id != entrega.IdEnt)
@@ -167,6 +171,7 @@ namespace apiprojeto.Controllers
         // POST: api/Entrega
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize("Admin")]
         public async Task<ActionResult<Entrega>> PostEntrega(Entrega entrega)
         {
           if (_context.Entregas == null)
@@ -199,6 +204,7 @@ namespace apiprojeto.Controllers
 
         // DELETE: api/Entrega/5
         [HttpDelete("{id}")]
+        [Authorize("Admin")]
         public async Task<IActionResult> DeleteEntrega(int id)
         {
             if (_context.Entregas == null)

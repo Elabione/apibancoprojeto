@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace apiprojeto.Models;
 
@@ -14,8 +15,8 @@ public partial class Entrega
     public int IdEpi { get; set; }
 
     public int IdCol { get; set; }
-
-    public virtual Colaborador IdColNavigation { get; set; } = null!;
-
-    public virtual Epi IdEpiNavigation { get; set; } = null!;
+    [JsonIgnore]
+    public virtual Colaborador? IdColNavigation { get; set; }
+    [JsonIgnore]
+    public virtual Epi? IdEpiNavigation { get; set; }
 }
